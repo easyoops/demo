@@ -1,7 +1,6 @@
 package com.example.demo.common.utils;
 
 import org.springframework.context.MessageSource;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.util.StringUtils;
 
 import java.util.Locale;
@@ -14,8 +13,6 @@ import java.util.Locale;
 public class CheckUtil {
 
     private static MessageSource messageSource;
-
-    ResourceBundleMessageSource resourceBundleMessageSource;
 
     public static void setMessageSource(MessageSource messageSource) {
         CheckUtil.messageSource = messageSource;
