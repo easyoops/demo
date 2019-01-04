@@ -113,13 +113,7 @@ public class RSAUtil {
             signature.initSign(privateKey);
             signature.update(source.getBytes("UTF-8"));
             signed = signature.sign();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (SignatureException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
             e.printStackTrace();
         }
         return signed;
@@ -127,6 +121,7 @@ public class RSAUtil {
 
     /**
      * 验签
+     *
      * @param publicKey
      * @param sign
      * @param source
@@ -139,13 +134,7 @@ public class RSAUtil {
             signature2.initVerify(publicKey);
             signature2.update(source.getBytes("UTF-8"));
             verify = signature2.verify(sign);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (SignatureException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
             e.printStackTrace();
         }
         return verify;
