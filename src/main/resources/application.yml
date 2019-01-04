@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/defence?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    username: jaywechen@qq.com
+    password: uihsctkiddjjbfgf
+    host: smtp.qq.com
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+mybatis:
+  typeAliasesPackage: com.example.demo.domain
+  mapperLocations: classpath:mapper/*.xml
+
+server:
+  port: 8888
+
+email:
+  from: jaywechen@qq.com
+  to: jaywechen@163.com
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+
+rsa:
+  privateKey: MIICXQIBAAKBgQDY90KtriCa4KjNe3mgrGGbDB958A2byBKf+wOmPmOopP3gGeg7+DFAPNYCC+tL8h2bpUI3IPKOm2Hon8kM/p628i1JZ7JjopYVZW6JKqA2ImyneeUEK748FXwXTRAAMCTqQG/7a178BGawTdHi6hk+M6UFlT0EhL6JA8ULKFoiHwIDAQABAoGBAIJFhF2wLZeQyQoH13Gnzzs/Pi8C+cjNipFQMFLDJyd9WYoTRCOt1DST0pOMAI2rJCfuRCHBwKHrnhAE0LzirPxkmvyHTIBXIoz3fHiSkIKkUVG04BcgTYpNKWPBISlzdhSaw7CnmJjTthTrD5LLPtpqUl350lUYFEHVNR6Ys9JRAkEA9JUEVxzSvQkVV6hxhbvlxl0mATbPfiNKDBTPdr48dyYdgluAoGfAPf9rmgoCpdEd2hZBIfdy7xdLLvP7ztb/rQJBAOMYNC/lZLz9A9cDJ5bibrJnmyRG0SAGAzu4ffYdBoGb0kRRKzTe5jxfRnbiUPQU4GQXhADfikGn2ogRqbtDsnsCQQCJdp+D3n1LJanLJK75PQv9myjbEdU4zdi2RZP85xrQ1KlNNORsQyO3NLFjWDD4xTmD83IUByGf43WsJBDoxcnZAkA3i84IARX42/I6fz0JvOzSmmDqKKAyMwZLbz7wGf1jalet+iSVVAgAsFUt8wFWEl0oXlAdXpAUqxfavGdFtLNNAkABS576xgLcLmyw51f9hoM9RiamLn+WNzoA5TLOZjGIdZZnX/A8SoFYGoJoN1O0hp5DxDdl+gjW/mH51+gliEIB
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDY90KtriCa4KjNe3mgrGGbDB958A2byBKf+wOmPmOopP3gGeg7+DFAPNYCC+tL8h2bpUI3IPKOm2Hon8kM/p628i1JZ7JjopYVZW6JKqA2ImyneeUEK748FXwXTRAAMCTqQG/7a178BGawTdHi6hk+M6UFlT0EhL6JA8ULKFoiHwIDAQAB
+
+
+

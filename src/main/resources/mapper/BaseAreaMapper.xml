@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.RegionMapper">
+    <sql id="base_column">
+        area_code,
+        area_name,
+        area_level,
+        p_code
+    </sql>
+    <sql id="abs_base_column">
+        <if test="area_code!=null">area_code,</if>
+        <if test="area_name!=null">area_name,</if>
+        <if test="area_level!=null">area_level,</if>
+        <if test="p_code!=null">p_code</if>
+    </sql>
+    <sql id="abs_insert_base_column">
+        <if test="area_code!=null">#{area_code},</if>
+        <if test="area_name!=null">#{area_name},</if>
+        <if test="area_level!=null">#{area_level},</if>
+        <if test="p_code!=null">#{p_code}</if>
+    </sql>
+    <sql id="abs_update_base_column">
+        <if test="area_name!=null">area_name = #{area_name},</if>
+        <if test="area_level!=null">area_level = #{area_level},</if>
+        <if test="p_code!=null">p_code = #{p_code}</if>
+        where area_code = #{area_code}
+    </sql>
+
+    <insert id="insert" parameterType="com.example.demo.domain.RegionBean">
+        insert into base_area_code(<include refid="abs_base_column"/>)
+        values (
+        <include refid="abs_insert_base_column"/>
+        )
+    </insert>
+
+    <select id="list" resultType="com.example.demo.domain.RegionBean">
+        select
+        <include refid="base_column"/>
+        from base_area_code
+    </select>
+
+    <update id="update" parameterType="com.example.demo.domain.RegionBean">
+        update base_area_code set
+        <include refid="abs_update_base_column"/>
+    </update>
+</mapper>
