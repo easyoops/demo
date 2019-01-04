@@ -1,5 +1,7 @@
 package com.example.demo.common.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
@@ -12,14 +14,16 @@ import javax.annotation.PostConstruct;
  * @detail 启动注入
  */
 @Component
-public class StaticInjection {
+public class ExecuteOnStart {
+
+    public final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     MessageSource messageSource;
 
     @PostConstruct
-    public void init(){
-        System.out.println("启动自动注入");
+    public void start(){
+        logger.info("@PostConstruct[MessageSource]:{}",messageSource.toString());
         CheckUtil.setMessageSource(messageSource);
         CheckUtil.fail();
     }
